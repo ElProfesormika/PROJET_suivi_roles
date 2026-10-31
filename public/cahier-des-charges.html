@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cahier des charges — Missions du personnel enseignant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #16324f;
+            --teal: #1c7f8e;
+            --burgundy: #8d2b3d;
+            --gold: #b08948;
+            --ink: #1c2430;
+            --muted: #5c6773;
+            --line: #d7dee6;
+            --paper: #f6f4ef;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--paper);
+            font-family: "Source Sans 3", "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+        .sheet {
+            max-width: 920px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 48px 56px 64px;
+        }
+        header.cover {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: end;
+            border-bottom: 3px solid var(--navy);
+            padding-bottom: 22px;
+            margin-bottom: 28px;
+        }
+        .kicker {
+            margin: 0 0 6px;
+            color: var(--teal);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        h1 {
+            margin: 0;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 34px;
+            line-height: 1.15;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        .subtitle { margin: 8px 0 0; color: var(--muted); }
+        .logo {
+            width: 180px;
+            height: auto;
+            background: #fff;
+        }
+        h2 {
+            margin: 36px 0 10px;
+            font-size: 20px;
+            color: var(--navy);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 6px;
+        }
+        h3 { margin: 22px 0 6px; font-size: 16px; color: var(--navy); }
+        p { margin: 0 0 12px; }
+        ul { margin: 0 0 12px; padding-left: 1.2em; }
+        li { margin: 4px 0; }
+        .meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 8px 0 4px;
+        }
+        .meta div {
+            border-top: 3px solid var(--navy);
+            padding-top: 8px;
+        }
+        .meta strong { display: block; font-size: 22px; color: var(--navy); }
+        .meta span { color: var(--muted); font-size: 13px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 16px;
+            font-size: 14.5px;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+        th {
+            background: var(--navy);
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) td { background: #f7f9fb; }
+        code {
+            font-family: ui-monospace, "Cascadia Code", monospace;
+            font-size: 0.92em;
+            background: #eef2f6;
+            padding: 0 4px;
+        }
+        .note {
+            border-left: 3px solid var(--gold);
+            background: #fbf8f2;
+            padding: 10px 14px;
+            margin: 12px 0 16px;
+        }
+        .schema {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .box {
+            border: 1px solid var(--line);
+            padding: 12px 14px;
+        }
+        .box h3 { margin-top: 0; }
+        .box.wide { grid-column: 1 / -1; }
+        .tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 4px;
+        }
+        a { color: var(--teal); }
+        footer {
+            margin-top: 40px;
+            padding-top: 12px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 13px;
+        }
+        @media print {
+            body { background: #fff; }
+            .sheet { max-width: none; padding: 0; }
+            a { color: inherit; text-decoration: none; }
+            h2 { break-after: avoid; }
+            table, .box, .note { break-inside: avoid; }
+        }
+        @media (max-width: 720px) {
+            .sheet { padding: 24px 18px 40px; }
+            header.cover, .meta, .schema { grid-template-columns: 1fr; }
+            h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+<main class="sheet">
+    <header class="cover">
+        <div>
+            <p class="kicker">Université Jean Monnet — IUT de Roanne</p>
+            <h1>Cahier des charges</h1>
+            <p class="subtitle">Gestion et suivi des missions du personnel enseignant. État du projet au 20 octobre 2026.</p>
+        </div>
+        <img class="logo" src="img/logo-iut-roanne.png" alt="IUT de Roanne, Université Jean Monnet">
+    </header>
+
+    <section class="meta" aria-label="Chiffres de la base">
+        <div><strong>1 425</strong><span>trajets importés</span></div>
+        <div><strong>9</strong><span>personnes</span></div>
+        <div><strong>3</strong><span>véhicules</span></div>
+        <div><strong>547 696 km</strong><span>distance relevée</span></div>
+    </section>
+
+    <h2>1. Objet</h2>
+    <p>Remplacer le registre papier des déplacements du personnel enseignant par une application web. Chaque mission conserve la date, la nature, le conducteur, les personnes transportées, le trajet, les horaires, le véhicule, les kilométrages et les remarques. Le responsable peut valider ou refuser. Les distances et les volumes servent au suivi.</p>
+    <p>L’application est en service en local. Le registre historique du professeur, de septembre 2012 à novembre 2018, est chargé dans la base <code>mission_ujm</code>.</p>
+
+    <h2>2. Acteurs</h2>
+    <table>
+        <thead>
+            <tr><th>Rôle</th><th>Périmètre</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Enseignant</td>
+                <td>Crée et consulte ses missions, transporte des collègues déjà inscrits dans l’annuaire, change son mot de passe. Il ne voit pas les missions des autres. Une mission validée ne peut plus être modifiée par lui.</td>
+            </tr>
+            <tr>
+                <td>Responsable</td>
+                <td>Voit toutes les missions, valide, refuse ou remet en attente, avec un commentaire. Consulte les statistiques de l’ensemble du personnel. Peut supprimer une mission.</td>
+            </tr>
+            <tr>
+                <td>Administrateur</td>
+                <td>Mêmes droits que le responsable, plus la création, la modification et la désactivation des comptes. Le dernier administrateur actif ne peut pas être désactivé.</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Les contrôles sont faits sur le serveur. Changer l’adresse d’une mission qui n’appartient pas à l’enseignant renvoie une erreur 403.</p>
+
+    <h2>3. Exigences fonctionnelles</h2>
+    <table>
+        <thead>
+            <tr><th>Exigence</th><th>État</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Connexion, session, déconnexion, trois rôles</td><td>Réalisé</td></tr>
+            <tr><td>Mots de passe hashés, jamais stockés en clair</td><td>Réalisé</td></tr>
+            <tr><td>Création, consultation, modification, suppression d’une mission</td><td>Réalisé</td></tr>
+            <tr><td>Prise et restitution du véhicule, avec son type</td><td>Réalisé</td></tr>
+            <tr><td>Personnes transportées, liées à l’annuaire</td><td>Réalisé</td></tr>
+            <tr><td>Validation, refus, remise en attente, commentaire obligatoire au refus</td><td>Réalisé</td></tr>
+            <tr><td>Distance calculée, non stockée</td><td>Réalisé</td></tr>
+            <tr><td>Recherche, filtres, pagination</td><td>Réalisé</td></tr>
+            <tr><td>Tableau de bord, statistiques, graphiques</td><td>Réalisé</td></tr>
+            <tr><td>Export CSV (séparateur point-virgule, Excel français) et impression</td><td>Réalisé</td></tr>
+            <tr><td>Jeton CSRF sur chaque formulaire</td><td>Réalisé</td></tr>
+        </tbody>
+    </table>
+
+    <h2>4. Règles de gestion</h2>
+    <ul>
+        <li>La distance d’un trajet vaut <code>kilometrageRetour − kilometrageDepart</code>. Elle n’est pas enregistrée.</li>
+        <li>Les deux relevés sont tous les deux renseignés, ou tous les deux vides. Le retour ne peut pas être inférieur au départ.</li>
+        <li>Prendre le véhicule, c’est le kilométrage de départ. Rendre le véhicule, c’est le kilométrage de retour. Le formulaire propose le dernier kilométrage connu du véhicule.</li>
+        <li>Le type <code>Velo</code> n’a pas de compteur : les kilométrages restent vides. Les autres types (Megane, 3008) exigent les deux relevés.</li>
+        <li>La date d’arrivée peut être postérieure à la date de départ. Les heures ne sont comparées que lorsque le trajet tient sur une seule journée.</li>
+        <li>Une personne transportée doit déjà exister dans <code>personne</code>. Le conducteur n’est pas recopié dans la table d’accompagnement.</li>
+        <li>Les 1 425 trajets historiques sont au statut validé, avec le commentaire « Reprise du registre historique. »</li>
+    </ul>
+
+    <h2>5. Modèle de données</h2>
+    <p>Les quatre tables du registre d’origine sont conservées : <code>personne</code>, <code>vehicule</code>, <code>trajet</code>, <code>accompagner</code>. Le mot de passe, les rôles et le circuit de validation ont été ajoutés. Le type du véhicule est un texte libre, comme dans le registre : Megane, 3008, Velo.</p>
+
+    <div class="schema">
+        <article class="box">
+            <p class="tag">Annuaire</p>
+            <h3>personne</h3>
+            <p>Identité, civilité, courriel unique, empreinte du mot de passe, rôle, département, téléphone, compte actif. Neuf lignes : un administrateur, un responsable, sept enseignants.</p>
+        </article>
+        <article class="box">
+            <p class="tag">Parc</p>
+            <h3>vehicule</h3>
+            <p><code>immatriculation</code>, <code>marque</code>, <code>type</code>. Trois véhicules. L’immatriculation du vélo est vide, comme dans le fichier d’origine.</p>
+        </article>
+        <article class="box wide">
+            <p class="tag">Registre</p>
+            <h3>trajet</h3>
+            <p>Nature, dates et heures de départ et d’arrivée, lieu, destination, kilométrages, conducteur (<code>idPersonne</code>), véhicule (<code>idVehicule</code>, facultatif), remarques. Ajouts : statut (<code>en_attente</code>, <code>validee</code>, <code>refusee</code>), validateur, date de validation, commentaire. Contraintes : l’arrivée n’est pas antérieure au départ ; les kilométrages sont cohérents ou absents.</p>
+        </article>
+        <article class="box">
+            <p class="tag">Passagers</p>
+            <h3>accompagner</h3>
+            <p>Couple <code>idTrajet</code> + <code>idPersonne</code>. Soixante-quatre liaisons. La suppression d’un trajet retire ses accompagnants.</p>
+        </article>
+        <article class="box">
+            <p class="tag">Catalogue</p>
+            <h3>types_missions</h3>
+            <p>Liste des natures proposées dans le formulaire, dont « Visite stagiaire » et « Visite alternant ». Le trajet enregistre le libellé dans <code>nature</code>.</p>
+        </article>
+    </div>
+
+    <h3>Parc actuel</h3>
+    <table>
+        <thead>
+            <tr><th>Marque</th><th>Type</th><th>Immatriculation</th><th>Trajets</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Renault</td><td>Megane</td><td>EM-240-EH</td><td>470</td></tr>
+            <tr><td>Peugeot</td><td>3008</td><td>DR-479-KJ</td><td>467</td></tr>
+            <tr><td>Mercier</td><td>Velo</td><td>—</td><td>475</td></tr>
+        </tbody>
+    </table>
+    <p>Treize trajets n’ont pas de véhicule. 488 trajets n’ont pas de kilométrage. 400 trajets durent plus d’une journée. 937 trajets ont un compteur : 547 696 km au total, 584,5 km en moyenne.</p>
+
+    <h3>Conducteurs</h3>
+    <table>
+        <thead>
+            <tr><th>Personne</th><th>Courriel</th><th>Trajets conduits</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Salah Khennouf</td><td>salah.khennouf@univ-st-etienne.fr</td><td>236</td></tr>
+            <tr><td>Laurent Moussiere</td><td>laurent.moussiere@univ-st-etienne.fr</td><td>207</td></tr>
+            <tr><td>Malek Masmoudi</td><td>malek.masmoudi@univ-st-etienne.fr</td><td>205</td></tr>
+            <tr><td>Mourad Lamraoui</td><td>mourad.lamraoui@univ-st-etienne.fr</td><td>204</td></tr>
+            <tr><td>Leize Mammad</td><td>leize.mammad@univ-st-etienne.fr</td><td>200</td></tr>
+            <tr><td>Francois Guillet</td><td>francois.guillet@univ-st-etienne.fr</td><td>196</td></tr>
+            <tr><td>Faraj Rim</td><td>faraj.rim@univ-st-etienne.fr</td><td>177</td></tr>
+        </tbody>
+    </table>
+    <p>Natures du registre : 761 visites d’alternant, 664 visites de stagiaire. Période : du 3 septembre 2012 au 20 novembre 2018.</p>
+
+    <h2>6. Réalisation technique</h2>
+    <ul>
+        <li>PHP 8, architecture MVC, Bootstrap 5, MySQL 8, requêtes préparées PDO.</li>
+        <li>Sessions nommées, cookie HttpOnly, régénération d’identifiant à la connexion.</li>
+        <li>Contrôle d’accès par rôle, côté serveur.</li>
+        <li>Schéma : <code>database/database.sql</code>. Registre historique chargé par <code>database/import_legacy.php</code>.</li>
+    </ul>
+    <div class="note">
+        Le graphique « six derniers mois » du tableau de bord est vide : les trajets s’arrêtent en 2018, et la fenêtre calculée est celle d’octobre 2026. Le graphique des statuts, lui, reflète les 1 425 missions validées.
+    </div>
+
+    <h2>7. Démonstration</h2>
+    <p>Application : <a href="http://localhost/login">http://localhost/login</a>. Ce document : <a href="http://localhost/cahier-des-charges.html">http://localhost/cahier-des-charges.html</a>.</p>
+    <table>
+        <thead>
+            <tr><th>Rôle</th><th>Courriel</th><th>Mot de passe</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Administrateur</td><td>admin@ujm-roanne.fr</td><td>Admin123!</td></tr>
+            <tr><td>Responsable</td><td>responsable@ujm-roanne.fr</td><td>Responsable123!</td></tr>
+            <tr><td>Enseignant</td><td>adresse @univ-st-etienne.fr</td><td>Enseignant123!</td></tr>
+        </tbody>
+    </table>
+    <p>Parcours suggéré : se connecter comme responsable, ouvrir le tableau de bord, filtrer les missions, afficher le trajet 209 (Peugeot 3008, Roanne vers Lyon, 200 km, quatre personnes) puis le trajet 8 (vélo, sans compteur), puis les statistiques. Se connecter ensuite comme enseignant pour montrer qu’il ne voit que ses missions.</p>
+
+    <footer>
+        IUT de Roanne, Université Jean Monnet. Chiffres lus dans la base mission_ujm le 20 octobre 2026.
+    </footer>
+</main>
+</body>
+</html>

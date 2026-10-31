@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Si l'application est servie depuis un sous-dossier sans le .htaccess racine,
+# decommentez la ligne suivante et adaptez le chemin.
+# RewriteBase /mission-ujm-mvc/public
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+Options -Indexes

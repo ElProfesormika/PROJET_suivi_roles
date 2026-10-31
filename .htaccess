@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Interdire l'acces direct au code, a la configuration et au SQL.
+RewriteRule ^(app|config|database|storage)(/|$) - [F,L]
+RewriteRule ^bootstrap\.php$ - [F,L]
+
+# Envoyer toutes les requetes vers le dossier public.
+RewriteRule ^$ public/ [L]
+RewriteRule ^((?!public/).*)$ public/$1 [L]
